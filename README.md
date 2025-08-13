@@ -82,4 +82,3 @@ return -1; // Not found
 const data = [1, 3, 5, 7, 9, 11, 13];
 console.log(binarySearch(data, 7)); // O(log n)
 ```
-# dsa-refresher
