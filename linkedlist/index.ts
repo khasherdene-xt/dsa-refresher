@@ -171,6 +171,25 @@ class LinkedList<T> {
     this.tail = null;
     this.length = 0;
   }
+
+  reverse() {
+    let temp = this.head;
+    this.head = this.tail;
+    let next: Node<T> | null = temp;
+    let prev: Node<T> | null = null;
+
+    for (let i = 0; i < this.length; i++) {
+      if (temp) {
+        next = temp.next; // Save next node
+        temp.next = prev; // Reverse pointer
+        prev = temp; // Move prev forward
+        temp = next; // Move temp forward
+      }
+    }
+
+    this.head = prev;
+    return this;
+  }
 }
 
 const linkedList = new LinkedList<number>(1);
@@ -183,3 +202,4 @@ linkedList.unshift(0);
 linkedList.insert(2, 28);
 console.log(linkedList.size());
 console.log(linkedList.size2());
+console.log(linkedList.reverse());
