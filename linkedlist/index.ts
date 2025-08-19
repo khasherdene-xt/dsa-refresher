@@ -29,6 +29,7 @@ class LinkedList<T> {
       this.tail.next = newNode;
       this.tail = newNode;
     }
+
     this.length++;
   }
 
@@ -60,6 +61,7 @@ class LinkedList<T> {
 
   unshift(value: T) {
     const newNode = new Node(value);
+
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
@@ -67,6 +69,7 @@ class LinkedList<T> {
       newNode.next = this.head;
       this.head = newNode;
     }
+
     this.length++;
     return this;
   }
@@ -116,7 +119,7 @@ class LinkedList<T> {
     if (index >= this.length || index < 0) return undefined;
 
     if (index === 0) {
-      this.unshift(value);
+      return this.unshift(value);
     }
 
     let newNode = new Node(value);
@@ -131,8 +134,9 @@ class LinkedList<T> {
     if (prev) {
       newNode.next = prev.next;
       prev.next = newNode;
-      this.length++;
     }
+
+    this.length++;
     return this;
   }
 
@@ -197,8 +201,8 @@ linkedList.push(2);
 linkedList.push(3);
 linkedList.push(4);
 linkedList.unshift(0);
-// linkedList.shift();
-// linkedList.pop();
+linkedList.shift();
+linkedList.pop();
 linkedList.insert(2, 28);
 console.log(linkedList.size());
 console.log(linkedList.size2());
